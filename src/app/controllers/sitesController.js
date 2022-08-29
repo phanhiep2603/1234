@@ -103,7 +103,7 @@ class SitesController {
 
         if(validator.isEmpty(data.fullname)) validationErrors.push({ msg: 'Fullname cannot be blank'});
         if(validator.isEmpty(data.email)) validationErrors.push({ msg: 'Email cannot be blank'});
-        if(validator.isEmail(data.email)) validationErrors.push({ msg: 'Incorrect email format, example: yourfullname@gmail.com'}); 
+        if(!validator.isEmail(data.email)) validationErrors.push({ msg: 'Incorrect email format, example: yourfullname@gmail.com'}); 
         if(validator.isEmpty(data.phone)) validationErrors.push({ msg: 'Phone cannot be blank'});
         if(validator.isEmpty(data.address)) validationErrors.push({ msg: 'Address cannot be blank'});
 
