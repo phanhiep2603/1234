@@ -11,47 +11,57 @@
     <div class="row">        
       <!-- Account Login-->
       <div class="col-lg-12">
-
         <h1 class="heading1"><span class="maintext">Register Account</span><span class="subtext"> Register Your details with us</span></h1>
           <div class="col-lg-7" style="padding-bottom:120px">
-            <form class="form-vertical" role="form" action="" method="POST">
+            <form class="register-form" role="form" action="" method="POST" onsubmit="validateRegisterForm()" novalidate>
             <!-- <input type="hidden" name="_token" value="{!! csrf_token() !!}"> -->
               <div class="form-group">
-                  <label>Username<span class="red">*</span></label>
-                  <input type="text" class="form-control" name="username" placeholder="Please Enter Username"/>
+                    <label>Username<span class="red">*</span></label>
+                    <input type="text" class="form-control" name="username" id = "username" placeholder="Please Enter Username"/>
+                    <span class="form-message"></span>
               </div>
               <div class="form-group">
-                  <label>Password<span class="red">*</span></label>
-                  <input type="password" class="form-control" name="password" placeholder="Please Enter Password" />
+                    <label>Password<span class="red">*</span></label>
+                    <input type="password" class="form-control validate" data-error="wrong" data-success="right" name="password" id="password" placeholder="Please Enter Password"/>
+                    <span class="form-message"></span>
               </div>
               <div class="form-group">
-                  <label>RePassword<span class="red">*</span></label>
-                  <input type="password" class="form-control" name="rePassword" placeholder="Please Enter RePassword" />
+                    <label>RePassword<span class="red">*</span></label>
+                    <input type="password" class="form-control" name="rePassword" id = "rePassword" placeholder="Please Enter RePassword"/>
+                    <span class="form-message"></span>
               </div>
               <div class="form-group">
-                  <label>Full Name<span class="red">*</span></label>
-                  <input type="text" class="form-control" name="fullname" placeholder="Please Enter Full Name"/>
+                    <label>Full Name<span class="red">*</span></label>
+                    <input type="text" class="form-control" name="fullname" id = "fullname" placeholder="Please Enter Full Name"/>
+                    <span class="form-message"></span>
               </div>
               <div class="form-group">
-                  <label>Gender<span class="red">*</span></label>
-                  <label class="radio-inline">
-                      <input name="gender" value="1" checked="" type="radio">Male
-                  </label>
-                  <label class="radio-inline">
-                      <input name="gender" value="0" type="radio">Female
-                  </label>
+                    <label>Gender<span class="red">*</span></label>
+                    <label class="radio-inline">
+                        <input name="gender" value="Male" type="radio">Male
+                    </label>
+                    <label class="radio-inline">
+                        <input name="gender" value="Female" type="radio">Female
+                    </label>
+                    <label class="radio-inline">
+                        <input name="gender" value="Other" type="radio">Other
+                    </label>
+                    <span class="form-message"></span>
               </div>
               <div class="form-group">
-                  <label>Email<span class="red">*</span></label>
-                  <input type="email" class="form-control" name="email" placeholder="Please Enter Email" />
+                    <label>Email<span class="red">*</span></label>
+                    <input type="email" class="form-control" name="email" id = "email" placeholder="Please Enter Email"/>
+                    <span class="form-message"></span>
               </div>
               <div class="form-group">
-                  <label>Address<span class="red">*</span></label>
-                  <input type="text" class="form-control" name="address" placeholder="Please Enter Address" />
+                    <label>Address<span class="red">*</span></label>
+                    <input type="text" class="form-control" name="address" id = "address" placeholder="Please Enter Address"/>
+                    <span class="form-message"></span>
               </div>
               <div class="form-group">
-                  <label>Phone Number<span class="red">*</span></label>
-                  <input type="text" class="form-control" name="phone" placeholder="Please Enter Phone Number" />
+                    <label>Phone Number<span class="red">*</span></label>
+                    <input type="text" class="form-control" name="phone" id = "phone" placeholder="Please Enter Phone Number"/>
+                    <span class="form-message"></span>
               </div>
               <input type="submit" class="btn btn-orange pull-left" value="Register">
             </form>
@@ -60,3 +70,35 @@
     </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    Validator({
+        form: '.register-form',
+        formGroupSelector: '.form-group',
+        errorSelector: '.form-message',
+        rules: [
+            Validator.isRequired('#username', 'Vui lòng nhập trường này'),
+            Validator.minLength('#username', 8, 'Vui lòng nhập ít nhất 8 ký tự'),
+            Validator.isUsername('#username', 'Username không có khoảng trắng và không có kí tự đặc biệt'),
+            Validator.isRequired('#password', 'Vui lòng nhập trường này'),
+            Validator.minLength('#password', 6, 'Vui lòng nhập ít nhất 6 ký tự'),
+            Validator.isRequired('#rePassword', 'Vui lòng nhập trường này'),
+            Validator.isConfirmed('#rePassword', function() {
+                  return document.querySelector('.register-form #password').value
+                }, 'Mật khẩu không giống nhau, vui lòng nhập lại'),
+            Validator.isRequired('#fullname', 'Vui lòng nhập trường này'),
+            Validator.isRequired('input[name="gender"]', 'Vui lòng chọn giới tính'),
+            Validator.isRequired('#email', 'Vui lòng nhập trường này'),
+            Validator.isEmail('#email', 'Trường này phải là Email'),
+            Validator.isRequired('#address', 'Vui lòng nhập trường này'),
+            Validator.isRequired('#phone', 'Vui lòng nhập trường này'),
+            Validator.isPhone('#phone', 'Vui lòng nhập đúng số điện thoại'),
+        ],
+        {{!-- onSubmit: function (data) {
+            console.log(data);
+        } --}}
+
+    })
+});
+</script>

@@ -1,7 +1,8 @@
-// JavaScript Document
+document.addEventListener('DOMContentLoaded', function () {
+	// JavaScript Document
 			
 // Brand Carousal
-	$(window).load(function() {
+$(window).load(function() {
 	$('#brandcarousal').carouFredSel({
 							width: '100%',
 						scroll: 1,
@@ -19,11 +20,11 @@
 // Dropdown on Mouseover					
 $('document').ready(function(){
 	
-	<!-- Tooltip -->
+	// <!-- Tooltip -->
 	 $('.tooltip-test').tooltip()
     $('.popover-test').popover()
 
-	<!-- Accrodian -->	
+	// <!-- Accrodian -->	
 	var $acdata = $('.accrodian-data'),
 		$acclick = $('.accrodian-trigger');
 
@@ -39,7 +40,7 @@ $('document').ready(function(){
 	});
 		
 		
-	<!-- Toggle -->			
+	// <!-- Toggle -->			
 	$('.togglehandle').click(function()
 	{
 		$(this).toggleClass('active')
@@ -113,7 +114,6 @@ $('document').ready(function(){
 		var thumbindex = $(this).index()		
 		$('.mainimage li #wrap').fadeOut(0)
 		$('.mainimage li #wrap').eq(thumbindex).fadeIn()
-		 $('.cloud-zoom, .cloud-zoom-gallery').CloudZoom();
 	})
 			
 	// List & Grid View
@@ -147,7 +147,7 @@ $('document').ready(function(){
 
 	
 					
-	<!-- index2 main Carousal-->
+	// <!-- index2 main Carousal-->
 	$("#mainslider2").carouFredSel({
 		responsive: true,
 	items		: 1,
@@ -172,7 +172,7 @@ $('document').ready(function(){
 	});
 
 
-	<!-- index3 main Carousal-->
+	// <!-- index3 main Carousal-->
 	$(function() {
 				$('#mainslider3').carouFredSel({
 					responsive: true,
@@ -196,7 +196,7 @@ $('document').ready(function(){
 			});
 
 
-	<!-- index4 main Carousal-->
+	// <!-- index4 main Carousal-->
 	$(window).load(function() {
               // The slider being synced must be initialized first
               $('#carouseindex4').flexslider({
@@ -218,7 +218,7 @@ $('document').ready(function(){
               });
             });
 			
-	<!-- index5 main Carousal-->		
+	// <!-- index5 main Carousal-->		
 			function prevTimers() {
 				return allTimers().slice( 0, $('.sliderindex5pager a.selected').index() );
 			}
@@ -253,7 +253,7 @@ $('document').ready(function(){
 				});
 			});
 			
-			<!-- index6 main Carousal-->
+			// <!-- index6 main Carousal-->
 	$(function() {
 				$('#mainslider6').carouFredSel({
 					//width: 900,
@@ -391,7 +391,7 @@ $(window).load(function(){
 	  
 });
 
-<!-- Scroll top -->		  
+// <!-- Scroll top -->		  
 $(window).scroll(function () {
 		if ($(this).scrollTop() > 50) {
 			$('#gotop').fadeIn(500);
@@ -402,7 +402,7 @@ $(window).scroll(function () {
 	
 
 $(window).load(function() {	
-	<!-- Portfolio -->					
+	// <!-- Portfolio -->					
 
   $.Isotope.prototype._getCenteredMasonryColumns = function() {
     this.width = this.element.width();
@@ -537,5 +537,5 @@ $(window).load(function() {
       });
 
   });					
-    });					
-					
+    });						 
+})

@@ -11,33 +11,29 @@
     <div class="row">        
       <!-- Account Login-->
       <div class="col-lg-12">
-
         <h1 class="heading1"><span class="maintext">Contact</span><span class="subtext"> Contact Us for more</span></h1>
 
-        <form class="form-vertical" role="form" action="{!! url('contact') !!}" method="POST">
-        <input type="hidden" name="_token" value="{!! csrf_token() !!}">
-
+        <form class="form-vertical" role="form" action="/contact" method="POST">
         <div class="">
           <div class="row">
               <fieldset>
-                @include('admin.blocks.error')
                 <div class="col-lg-6">
                   <div class="control-group">
                     <label class="control-label" >Full Name<span class="red">*</span></label>
                     <div class="controls">
-                      <input type="text" name="txtFname" class=""  value="{!! old('txtFname') !!}">
+                      <input type="text" name="fullname" class=""  value="{{ user.fullname}}">
                     </div>
                   </div>
                   <div class="control-group">
                     <label class="control-label" >E-Mail<span class="red">*</span></label>
                     <div class="controls">
-                      <input type="text" name="txtEmail" class=""  value="{!! old('txtEmail') !!}">
+                      <input type="text" name="email" class=""  value="{{ user.email}}">
                     </div>
                   </div>
                   <div class="control-group">
                     <label class="control-label" >Telephone<span class="red">*</span></label>
                     <div class="controls">
-                      <input type="text" name="txtPhone" class=""  value="{!! old('txtPhone') !!}">
+                      <input type="text" name="phone" class=""  value="{{ user.phone}}">
                     </div>
                   </div>  
                 </div>
@@ -45,17 +41,16 @@
                   <div class="control-group">
                     <label class="control-label" >Note<span class="red">*</span></label>
                     <div class="controls">
-                    <textarea class="form-control" placeholder="Add comment here..." rows="6" name="txtContact">{!! old('txtContact') !!}</textarea>
+                    <textarea class="form-control" placeholder="Add comment here..." rows="6" name="contact" "></textarea>
                     </div>
                   </div>
                 </div>
               </fieldset>
           </div>
         </div>
-
           <div class="col-lg-4 pull-right">
             <input type="submit" class="btn btn-orange pull-right" value="Submit">
-            <a href="{!! url('index') !!}"><input type="" value="Continue Shopping" class="btn btn-orange pull-right mr10"></a>
+            <a href="/"><input type="" value="Continue Shopping" class="btn btn-orange pull-right mr10"></a>
           </div>  
         </form>
       </div>        

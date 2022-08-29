@@ -1,0 +1,73 @@
+<div class="col-lg-12 col-md-6 col-12">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">Add Category</h4>
+        </div>
+        <div class="card-content">
+            <div class="card-body">
+                <form class="form form-horizontal" method="POST">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>Name</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text" name ="fullname" class="form-control"
+                                    value="{{ contact.fullname}}" readonly>
+                            </div>
+                            <div class="col-md-4">
+                                <label>Email</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text" name ="email" class="form-control"
+                                    value="{{ contact.email}}" readonly>
+                            </div>
+                            <div class="col-md-4">
+                                <label>Phone</label>
+                            </div>
+                            <div class="col-md-8 form-group ">
+                                <input type="text" name ="phone" class="form-control"
+                                    value="{{ contact.phone}}" readonly>
+                            </div>
+                            <div class="col-md-4">
+                                <label>Contact</label>
+                            </div>
+                            <div class="col-md-8 form-group ">
+                                <input type="text" name ="contact" class="form-control"
+                                    value="{{ contact.contact}}" readonly>
+                            </div>
+                            <div class="col-md-4">
+                                <label>Status</label>
+                            </div>
+                            <div class="col-md-8 form-group ">
+                                {{#switch contact.status}}
+                                    <input class="form-check-input" type="radio" value="0" name="status"
+                                        id="newEmail" {{#case 0}} checked="checked" {{/case}}>
+                                    <label class="form-check-label" for="newEmail">
+                                        New Email
+                                    </label>
+                                    <input class="form-check-input" type="radio" value="1" name="status"
+                                        id="Solving" {{#case 1}} checked="checked" {{/case}}>
+                                    <label class="form-check-label" for="Solving">
+                                        Solving
+                                    </label>
+                                    <input class="form-check-input" type="radio" value="2" name="status"
+                                        id="Resolved" {{#case 2}} checked="checked" {{/case}}>
+                                    <label class="form-check-label" for="Resolved">
+                                        Resolved
+                                    </label>
+                                    {{/switch}}
+                            </div>
+                            <div class="col-12 d-flex justify-content-end">
+                                <button type="submit"
+                                    class="btn btn-primary me-1 mb-1">Submit</button>
+                                <button type="reset"
+                                    class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

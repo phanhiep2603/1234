@@ -1,0 +1,87 @@
+<div class="col-lg-12 col-md-6 col-12">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">Add Category</h4>
+        </div>
+        <div class="card-content">
+            <div class="card-body">
+                <form class="form form-horizontal form-quills" action="?_method=PUT" method="POST">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>Category</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <div class="input-group">
+                                    <label class="input-group-text" for="inputGroupSelect01">Category</label>
+                                <select class="form-select" name="categoryParent" id="inputGroupSelect01">
+                                        <option value="{{ product.alias.name}}">{{ product.alias.name}}</option>
+                                </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label>Name</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text" name ="productName" class="form-control"
+                                    placeholder="Product Name" value="{{ product.nameProduct}}">
+                            </div>
+                            <div class="col-md-4">
+                                <label>Price</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="number" name ="priceProduct" class="form-control"
+                                    placeholder="Price" value="{{ product.priceProduct}}">
+                            </div>
+                            <div class="col-md-4">
+                                <label>Price New</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="number" name ="price_newProduct" class="form-control"
+                                    placeholder="Price New" value="{{ product.price_newProduct}}">
+                            </div>
+                            <div class="col-md-4">
+                                <label>Intro</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <div id="snow"></div>
+                                <input id="snow" type="hidden" name ="introProduct" class="form-control hiddenInput"
+                                    placeholder="Content" value="{{ product.introProduct}}">
+                            </div>
+                            <div class="col-md-4 mt-5">
+                                <label>Content</label>
+                            </div>
+                            <div class="col-md-8 form-group mt-5">
+                                <div id="snow2"></div>
+                                <input type="hidden"  name ="contentProduct" class="form-control hiddenInput"
+                                    placeholder="Content" value="{{ product.contentProduct}}">
+                            </div>
+                            <div class="col-md-4 mt-5">
+                                <label>Keyword</label>
+                            </div>
+                            <div class="col-md-8 form-group mt-5">
+                                <input type="text" name ="keywordsProduct" class="form-control"
+                                    placeholder="Keyword Product" value="{{ product.keywordsProduct}}">
+                            </div>
+                            <div class="col-md-4">
+                                <label>Description</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text" name ="descriptionProduct" class="form-control"
+                                    placeholder="Description Product" value="{{ product.descriptionProduct}}">
+                            </div>
+                            <div class="col-12 d-flex justify-content-end">
+                                <button type="submit"
+                                    class="btn btn-primary me-1 mb-1">Submit</button>
+                                <button type="reset"
+                                    class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/admin/quill/quill.min.js"></script>
+<script src="/admin/js/form-editor.js"></script>

@@ -1,0 +1,50 @@
+<section class="section">
+    <div class="row" id="table-hover-row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">List Categories</h4>
+                </div>
+                
+                <div class="card-content">
+                    <!-- table hover -->
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0">
+                            <thead>
+                                <tr class="text-center">
+                                    <th>ID</th>
+                                    <th>Customer</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Date Contact</th>
+                                    <th>Note</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each contacts}}
+                                <tr class="text-center">
+                                    <td>{{ this._id}}</td>
+                                    <td>{{ this.fullname}}</td>
+                                    <td>{{ this.email}}</td>
+                                    <td>{{ this.phone}}</td>
+                                    <td>{{#prettifyDate this.createdAt}} {{/prettifyDate}}</td>
+                                    <td>{{ this.contact}}</td>
+                                    <td>
+                                        {{#ifEquals this.status 0}} 
+                                        New Email
+                                        {{else}}
+                                        <span class="bi bi-check-circle"></span>
+                                        {{/ifEquals}}
+                                    </td>
+                                    <td class="center"><a class="bi bi-pencil" href="/admin/mailbox/{{ this._id}}">Detail</a></td>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

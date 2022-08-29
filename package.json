@@ -25,14 +25,32 @@
   },
   "homepage": "https://github.com/phanhiep2603/StoreProject#readme",
   "dependencies": {
+    "@handlebars/allow-prototype-access": "^1.0.5",
+    "bcrypt": "^5.0.1",
     "body-parser": "^1.20.0",
+    "connect-mongo": "^4.6.0",
+    "cookie": "^0.5.0",
+    "dotenv": "^16.0.1",
     "express": "^4.18.1",
+    "express-flash": "^0.0.2",
     "express-handlebars": "^6.0.6",
+    "express-session": "^1.17.3",
+    "jsonwebtoken": "^8.5.1",
     "method-override": "^3.0.0",
     "mongoose": "^6.4.6",
+    "mongoose-delete": "^0.5.4",
+    "mongoose-sequence": "^5.3.1",
     "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
     "node-localstorage": "^2.2.1",
-    "node-sass": "^7.0.1"
+    "node-sass": "^7.0.1",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "passport-oauth": "^1.0.0",
+    "sharp": "^0.30.7",
+    "socket.io": "^4.5.1",
+    "uuid": "^8.3.2",
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.19"

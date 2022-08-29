@@ -2,15 +2,17 @@ const mongoose = require('mongoose');
 
 async function connect(){
     try {
-    await mongoose.connect('mongodb://localhost:27017/News',{ 
+    await mongoose.connect(process.env.MONGODB_URI,{ 
         useNewUrlParser: true, 
-        useUnifiedTopology: true 
+        useUnifiedTopology: true,
       });
-      console.log('Connect successfullyy!!');
+      console.log('Mongoose: Connect Mongodb successfullyy!!');
     } catch (err) {
-      console.log('Connect Failure!!!!')
+      console.log(err);
+      console.log('%s MongoDB connection error. Please make sure MongoDB is running.');
+      process.exit();
     }
 }
 
-module.exports = { connect}
+module.exports = { connect }
 

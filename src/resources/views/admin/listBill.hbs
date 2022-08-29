@@ -1,0 +1,55 @@
+<section class="section">
+    <div class="row" id="table-hover-row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">List Categories</h4>
+                </div>
+                
+                <div class="card-content">
+                    <!-- table hover -->
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0">
+                            <thead>
+                                <tr class="text-center">
+                                    <th>ID</th>
+                                    <th>Username</th>
+                                    <th>Fullname</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Address</th>
+                                    <th>Status</th>
+                                    <th>Payment</th>
+                                    <th>Total</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each bills}}
+                                <tr class="text-center">
+                                    <td>{{ this._id}}</td>
+                                    <td>{{ this.userId.username}}</td>
+                                    <td>{{ this.fullname}}</td>
+                                    <td>{{ this.email}}</td>
+                                    <td>{{ this.phone}}</td>
+                                    <td>{{ this.address}}</td>
+                                    <td>
+                                    {{#switch this.status}} 
+                                        {{#case 0}} New Bill {{/case}}
+                                        {{#case 1}} Not Delivered Yet {{/case}}
+                                        {{#case 2}} Shipped {{/case}}
+                                        {{#case 3}} Delivered {{/case}}
+                                    {{/switch}}
+                                    </td>
+                                    <td>{{ this.payment}}</td>
+                                    <td>{{ this.total}}</td>
+                                    <td class="center"><a class="bi bi-pencil" href="/admin/bill/{{ this._id}}">Detail</a></td>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

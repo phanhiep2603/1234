@@ -1,0 +1,101 @@
+<div class="modal fade text-left" id="delete" tabindex="-1"
+    role="dialog" aria-labelledby="myModalLabel120"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+        role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-danger">
+                <h5 class="modal-title white" id="myModalLabel120">
+                    Delete Confirm
+                </h5>
+                <button type="button" class="close"
+                    data-bs-dismiss="modal" aria-label="Close">
+                    <i data-feather="x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p style="font-weight: bolder">Are you sure to delete at ?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="ondelete" class="btn btn-danger ml-1"
+                    data-bs-dismiss="modal">
+                    <i class="bx bx-check d-block d-sm-none"></i>
+                    <span class="d-none d-sm-block">Delete</span>
+                </button>
+                <button type="button"
+                    class="btn btn-light-secondary"
+                    data-bs-dismiss="modal">
+                    <i class="bx bx-x d-block d-sm-none"></i>
+                    <span class="d-none d-sm-block">Close</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<form class="form form-horizontal form-quills" id="form-delete" method="POST"></form>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var id;
+        var deleteForm = $$('#form-delete');
+        var pathname = window.location.pathname;
+        $('#delete').on('show.bs.modal', function (e) {
+        var button = $(e.relatedTarget)
+        id = button.data('id');
+        })
+        $$('#ondelete').onclick = function () {
+            deleteForm.action = pathname + '/' + id + '?_method=DELETE';
+            deleteForm.submit();
+        }
+    });
+</script>
+
+<form action="/logout" method="GET" class="logoutForm"></form>
+<div class="modal fade text-left" id="logout" tabindex="-1"
+    role="dialog" aria-labelledby="myModalLabel120"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+        role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-danger">
+                <h5 class="modal-title white" id="myModalLabel120">
+                    Confirm Logout
+                </h5>
+                <button type="button" class="close"
+                    data-bs-dismiss="modal" aria-label="Close">
+                    <i data-feather="x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                Do you want to logout ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="logout" class="btn btn-danger ml-1">
+                    <i class="bx bx-check d-block d-sm-none"></i>
+                    <span class="d-none d-sm-block">Accept</span>
+                </button>
+                <button type="button"
+                    class="btn btn-light-secondary"
+                    data-bs-dismiss="modal">
+                    <i class="bx bx-x d-block d-sm-none"></i>
+                    <span class="d-none d-sm-block">Close</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var logout = document.getElementById('logout')
+        logout.addEventListener('show.bs.modal', function (event) {
+            var button = event.relatedTarget;
+            var btnLogout = document.querySelector('button[id="logout"]')
+                btnLogout.onclick = e => {
+                    e.preventDefault();
+                    var formLogout = document.querySelector('.logoutForm');
+                    formLogout.submit();
+                }
+        })
+        
+    })
+</script>

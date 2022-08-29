@@ -1,0 +1,87 @@
+<div id="sidebar" class="active">
+    <div class="sidebar-wrapper active">
+        <div class="sidebar-header">
+            <div class="d-flex justify-content-between">
+                <div class="logo">
+                    <a href="/admin"><img src="/admin/images/logo/logo.png" alt="Logo" srcset=""></a>
+                </div>
+                <div class="toggler">
+                    <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar-menu">
+            <ul class="menu">
+                <li class="sidebar-title">Menu</li>
+
+                <li class="sidebar-item dashboard">
+                    <a href="/admin" class='sidebar-link'>
+                        <i class="bi bi-grid-fill"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="sidebar-item  has-sub bill">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-clipboard-check"></i>
+                        <span>Bill</span>
+                    </a>
+                    <ul class="submenu ">
+                        <li class="submenu-item bill">
+                            <a href="/admin/Bill">List Bill <span style="float: right;">123</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="sidebar-item  has-sub category">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-stack"></i>
+                        <span>Category</span>
+                    </a>
+                    <ul class="submenu">
+                        <li class="submenu-item listcategory">
+                            <a href="/admin/listCategory">List Category</a>
+                        </li>
+                        <li class="submenu-item addcategory">
+                            <a href="/admin/addCategory">Add Category</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="sidebar-item  has-sub product">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-box-seam"></i>
+                        <span>Product</span>
+                    </a>
+                    <ul class="submenu ">
+                        <li class="submenu-item listproduct">
+                            <a href="/admin/listProduct">List Product</a>
+                        </li>
+                        <li class="submenu-item addproduct">
+                            <a href="/admin/addProduct">Add Product</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="sidebar-item  has-sub user">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-people-fill"></i>
+                        <span>User</span>
+                    </a>
+                    <ul class="submenu ">
+                        <li class="submenu-item listuser">
+                            <a href="/admin/listUser">List User</a>
+                        </li>
+                        <li class="submenu-item adduser">
+                            <a href="/admin/addUser">Add User</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="sidebar-item mailbox">
+                    <a href="/admin/mailbox" class='sidebar-link'>
+                        <i class="bi bi-mailbox2"></i>
+                        <span>Mailbox</span>
+                        <span class="w-100 text-end" >{{ count.mail}}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+    </div>
+</div>

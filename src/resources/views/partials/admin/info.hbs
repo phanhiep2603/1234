@@ -1,0 +1,93 @@
+<div class="col-12 col-lg-12">
+    <div class="row">
+        <div class="col-6 col-lg-2 col-md-6">
+            <div class="card">
+                <div class="card-body px-3 py-4-5">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="stats-icon purple">
+                                <i class="iconly-boldDocument"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <h6 class="text-muted font-semibold">Bill</h6>
+                            <h6 class="font-extrabold mb-0">{{ count.bill}}</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-lg-2 col-md-6">
+            <div class="card">
+                <div class="card-body px-3 py-4-5">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="stats-icon blue">
+                                <i class="iconly-boldProfile"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <h6 class="text-muted font-semibold">User</h6>
+                            <h6 class="font-extrabold mb-0">{{ count.user}}</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-lg-2 col-md-6">
+            <div class="card">
+                <div class="card-body px-3 py-4-5">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="stats-icon green">
+                                <i class="iconly-boldAdd-User"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <h6 class="text-muted font-semibold">Following</h6>
+                            <h6 class="font-extrabold mb-0">80.000</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-lg-3 col-md-6">
+            <div class="card">
+                <div class="card-body px-3 py-4-5">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="stats-icon red">
+                                <i class="iconly-boldWork"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <h6 class="text-muted font-semibold">Product</h6>
+                            <h6 class="font-extrabold mb-0">{{ count.product}}</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-lg-3 col-md-6">
+            <div class="card">
+                <div class="card-body py-4 px-5">
+                    <div class="d-flex align-items-center">
+                        <div class="avatar avatar-xl">
+                            <img src="/admin/images/faces/7.jpg" alt="Face 7">
+                        </div>
+                        <div class="ms-3 name">
+                            <h5 class="font-bold">{{ user.username}}</h5>
+                            <h6 class="text-muted mb-0">
+                                {{#switch user.level}} 
+                                    {{#case 0}} Admin {{/case}}
+                                    {{#case 1}} Manager {{/case}}
+                                {{/switch}}
+                            </h6>
+                        </div>
+                        <div class="ms-4"><button type='button' class="btn btn-danger" data-bs-toggle="modal" data-id="{{ user.id}}" data-bs-target="#logout">Logout</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

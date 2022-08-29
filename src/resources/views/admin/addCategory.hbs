@@ -1,0 +1,62 @@
+<div class="col-lg-12 col-md-6 col-12">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">Add Category</h4>
+        </div>
+        <div class="card-content">
+            <div class="card-body">
+                <form class="form form-horizontal form-quills" method="POST">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>Parent</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <div class="input-group">
+                                    <label class="input-group-text" for="inputGroupSelect01">Parent</label>
+                                <select class="form-select" name="categoryParent" id="inputGroupSelect01">
+                                    <option selected="" value=''>Categories</option>
+                                    {{#each cateParent}}
+                                        <option value="{{ this.name}}">{{ this.name}}</option>
+                                    {{/each}}
+                                </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label>Name</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text" name ="name" class="form-control"
+                                    placeholder="Category Name">
+                            </div>
+                            <div class="col-md-4">
+                                <label>Keywords</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text" name ="keyword" class="form-control"
+                                    placeholder="Category Keywords">
+                            </div>
+                            <div class="col-md-4">
+                                <label>Description</label>
+                            </div>
+                            <div class="col-md-8 form-group ">
+                                <input type="text" name ="description" class="form-control"
+                                    placeholder="Category Description">
+                            </div>
+                            <div class="col-12 d-flex justify-content-end">
+                                <button type="submit"
+                                    class="btn btn-primary me-1 mb-1">Submit</button>
+                                <button type="reset"
+                                    class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="/admin/quill/quill.min.js"></script>
+<script src="/admin/js/form-editor.js"></script>

@@ -3,57 +3,60 @@
   <div class="container">
     <h1 class="heading1"><span class="maintext">Featured Products</span><span class="subtext"> See Our Most featured Products</span></h1>
     <ul class="thumbnails">
-            <li class="col-lg-3  col-sm-6">
-        <a class="prdocutname" href="./product-detail/1">Quần Nam</a>
-        <div class="thumbnail">
-                    <span class="sale tooltip-test">Sale</span>
-                    <a href="http://localhost:8001/product-detail/1"><img alt="" src="/upload/shotnam1.jpg"></a>
-<!--           <div class="shortlinks">
-            <a class="details" href="#">DETAILS</a>
-            <a class="wishlist" href="#">WISHLIST</a>
-            <a class="compare" href="#">COMPARE</a>
-          </div> -->
-          <div class="pricetag">
-                          <span class="spiral"></span><a href="http://localhost:8001/product-detail/1" class="productcart">ADD TO CART</a>
-                        <div class="price">
-                              <div class="pricenew">$25000</div>
-                <div class="priceold">$20000</div>
-                          </div>
+        {{#each products}}
+        <li class="col-lg-3  col-sm-6">
+          <a class="prdocutname text-truncate" href="/productDetail/{{ this._id}}">{{ this.nameProduct}}</a>
+          <div class="thumbnail">
+            {{#ifGreater this.priceProduct this.price_newProduct}}
+            <span class="sale tooltip-test">Sale</span>
+            {{/ifGreater}}
+            <a href="/productDetail/{{ this._id}}"><img alt="" {{#each imageProduct.file}}src="/upload/{{ filename}}"{{/each}}></a>
+            <div class="shortlinks">
+              <a class="details" href="/productDetail/{{ this._id}}">DETAILS</a>
+              <a class="wishlist" href="#">WISHLIST</a>
+              <a class="compare" href="#">COMPARE</a>
+            </div> 
+            <div class="pricetag">
+              <span class="spiral"></span><div class="productcart">{{#each sizeProduct.size}} {{ size }} {{/each}}</div>
+              <div class="price">
+                {{#ifEquals this.status 0}}
+                <div class="pricenew">{{ this.price}}</div>
+                {{else}}
+                <div class="pricenew">{{ this.price_newProduct}}</div>
+                <div class="priceold">{{ this.priceProduct}}</div>
+                {{/ifEquals}}
+             </div>
+            </div>
           </div>
-        </div>
-      </li>
-          </ul>
+        </li>
+        {{/each}}
+      </ul>
   </div>
 </div>
-
 <!-- Latest Product-->
 <div id="latest" class="row">
   <div class="container">
     <h1 class="heading1"><span class="maintext">Latest Products</span><span class="subtext"> See Our Latest Products</span></h1>
     <ul class="thumbnails">
-            <li class="col-lg-3 col-sm-6">
-        <a class="prdocutname" href="http://localhost:8001/product-detail/1">Quần Nam</a>
+      <li class="col-lg-3 col-sm-6">
+        <a class="prdocutname" href="http://localhost:8001/product-detail/1">{{ req.session.cart}}</a>
         <div class="thumbnail">
-                    <span class="sale tooltip-test">Sale</span>
-                    <a href="http://localhost:8001/product-detail/1"><img alt="" src="/upload/shotnam.jpg"></a>
-<!--           <div class="shortlinks">
+          <span class="sale tooltip-test">Sale</span>
+          <a href="http://localhost:8001/product-detail/1"><img alt="" src="/upload/shotnam.jpg"></a>
+          <div class="shortlinks">
             <a class="details" href="#">DETAILS</a>
             <a class="wishlist" href="#">WISHLIST</a>
             <a class="compare" href="#">COMPARE</a>
-          </div> -->
+          </div>
           <div class="pricetag">
-                          <span class="spiral"></span><a href="http://localhost:8001/product-detail/1" class="productcart">ADD TO CART</a>
-                        <div class="price">
-                              <div class="pricenew">$25000</div>
-                <div class="priceold">$20000</div>
-                          </div>
+              <span class="spiral"></span><div class="productcart"></div>
+              <div class="price">
+                    <div class="pricenew">$25000</div>
+                    <div class="priceold">$20000</div>
+              </div>
           </div>
         </div>
       </li>
-          </ul>
+    </ul>
   </div>
 </div>
-  
-
-</div>
-<!-- /maincontainer -->

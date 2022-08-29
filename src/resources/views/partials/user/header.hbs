@@ -1,0 +1,31 @@
+<div class="headerstrip">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12"> <a href="/" class="logo pull-left"><img src="/user/img/logo.jpg" alt="SimpleOne" title="SimpleOne"></a> 
+                <!-- Top Nav Start -->
+                <div class="pull-left">
+                    <div class="navbar" id="topnav">
+                        <div class="navbar-inner">
+                            <ul class="nav" >
+                                <li><a class="home active" href="/">Home</a> </li>
+                                <li><a class="shoppingcart" href="/cart-info">Shopping Cart</a> </li>
+                                <li><a class="checkout" href="/checkout">CheckOut</a> </li>
+                                <li><a class="myaccount " href="/customer/myaccount">My Account</a> </li>
+                                {{#if user}}
+                                <li><a class="log-out" href="/logout">Logout</a></li>
+                                {{/if}}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Top Nav End -->
+                <div class="pull-right">
+                    <form action="/search" method="post" class="form-search top-search">
+                        <input type="text" name="key_search" class="input-medium search-query" placeholder="Search Here…">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Header End -->

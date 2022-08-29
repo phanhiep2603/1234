@@ -1,0 +1,39 @@
+<section class="section">
+    <div class="row" id="table-hover-row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">List Categories</h4>
+                    <button onclick="showErrorToast();" class="btn btn--danger">Show error toast</button>
+                </div>
+                
+                <div class="card-content">
+                    <!-- table hover -->
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Keyword</th>
+                                    <th>Description</th>
+                                    <th>Catogory Parent</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each cate}}
+                                <tr>
+                                    <td>{{ this._id}}</td>
+                                    <td>{{ this.name}}</td>
+                                    <td>{{ this.keyword}}</td>
+                                    <td>{{ this.description}}</td>
+                                    <td>{{ this.parentId.name}}</td>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

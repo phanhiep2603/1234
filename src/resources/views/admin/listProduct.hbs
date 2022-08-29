@@ -1,0 +1,65 @@
+<section class="section">
+    <div class="row" id="table-hover-row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Hoverable rows</h4>
+                </div>
+                <div class="card-content">
+                    <!-- table hover -->
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Status</th>
+                                    <th>Price</th>
+                                    <th>New Price</th>
+                                    <th>Description</th>
+                                    <th>Intro</th>
+                                    <th>Content</th>
+                                    <th>Keyword</th>
+                                    <th colspan="2" style="text-align: center;">ACTION</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each product}}
+                                <tr>
+                                    <td>{{ this._id }}</td>
+                                    <td>{{ this.nameProduct }}</td>
+                                    <td>{{ this.statusProduct }}</td>
+                                    <td>{{ this.priceProduct }}</td>
+                                    <td>{{ this.price_newProduct }}</td>
+                                    <td>{{ this.descriptionProduct }}</td>
+                                    <td>{{ this.introProduct }}</td>
+                                    <td>{{ this.contentProduct }}</td>
+                                    <td>{{ this.keywordsProduct}}</td>
+                                    <td><a href="/admin/listProduct/{{ this._id}}" class="btn btn-info editbtn">Edit</a>
+                                    <button class="btn btn-danger removebtn" data-bs-toggle="modal" data-id="{{ this._id}}" data-bs-target="#delete">Remove</button>
+                                    </td>
+                                </tr>
+                                {{else}}
+                                <tr>
+                                    <td colspan="7">
+                                        No product to show you
+                                    </td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<form method="POST" class="form-hidden"></form>
+
+<script>
+    const btnE = document.querySelector('.editbtn');
+    const removeE = document.querySelector('.removebtn');
+    const form = document.querySelector('.form-hidden');
+
+
+</script>

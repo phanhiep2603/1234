@@ -16,25 +16,19 @@
             <h2 class="heading2">Returning Customer </h2>
             <div class="loginbox">
               <h4 class="heading4">You already have an account. Please login:</h4>
-              @if(Session::has('flash_message'))
-                  <div class="alert alert-{!! Session::get('flash_level') !!}">
-                      {!! Session::get('flash_message') !!}
-                  </div>
-              @endif
-              @include('admin.blocks.error')
               <form class="form-vertical" role="form" action="" method="POST">
-                 <input type="hidden" name="_token" value="{!! csrf_token() !!}">
+                 {{!-- <input type="hidden" name="_token" value="{!! csrf_token() !!}"> --}}
                 <fieldset>
                   <div class="control-group">
                     <label  class="control-label">Username:</label>
                     <div class="controls">
-                      <input type="text" name="txtUsername" placeholder="Username" class="" value="{!! old('txtUsername') !!}">
+                      <input type="text" name="username" placeholder="Username" class="">
                     </div>
                   </div>
                   <div class="control-group">
                     <label  class="control-label">Password:</label>
                     <div class="controls">
-                      <input type="password" name="txtPass" placeholder="Password" class="">
+                      <input type="password" name="password" placeholder="Password" class="">
                     </div>
                   </div>
                   <div class="form-group">
@@ -54,7 +48,7 @@
               <p>Register at Shop Fashion ST to use the functions on the website and update information of our new products in the fastest way.</p>
               <br>
               <br>
-              <a href="{!! url('register') !!}" class="btn btn-orange">Register Account</a>
+              <a href="/register" class="btn btn-orange">Register Account</a>
             </div>
           </section>
         </div>

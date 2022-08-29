@@ -1,0 +1,27 @@
+{{#if messages.errors }}
+<div class="alert alert-danger alert-dismissible show fade" id="alertMessage" role='alert'>
+  {{#each messages.errors }}
+    {{ this.msg }}
+  {{/each}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+
+{{#if messages.info }}
+<div class="alert alert-info alert-dismissible show fade" id="alertMessage" role='alert'>
+  {{#each messages.info }}
+    {{ this.msg }}
+  {{/each}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+
+{{#if messages.success }}
+<div class="alert alert-success alert-dismissible show fade" id="alertMessage" role='alert'>
+  {{#each messages.success }}
+    {{ this.msg }}
+  {{/each}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+

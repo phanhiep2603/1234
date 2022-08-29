@@ -1,0 +1,116 @@
+<div class="col-lg-12 col-md-6 col-12">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">Add Category</h4>
+        </div>
+        <div class="card-content">
+            <div class="card-body">
+                <form class="form form-horizontal form-quills" method="POST" enctype="multipart/form-data">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>Category</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <div class="input-group">
+                                    <label class="input-group-text" for="inputGroupSelect01">Category</label>
+                                <select class="form-select" name="category" id="inputGroupSelect01">
+                                    <option value="" selected>Please choose Category</option>
+                                    {{#each cate}}
+                                        <option value="{{ this._id}}">{{ this.name}}</option>
+                                    {{/each}}
+                                </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label>Name</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text" name ="nameProduct" class="form-control"
+                                    placeholder="Product Name">
+                            </div>
+                            <div class="col-md-4">
+                                <label>Price</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="number" name ="priceProduct" class="form-control"
+                                    placeholder="Price">
+                            </div>
+                            <div class="col-md-4">
+                                <label>Price New</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="number" name ="price_newProduct" class="form-control"
+                                    placeholder="Price New">
+                            </div>
+                            <div class="col-md-4">
+                                <label>Intro</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <div id="snow"></div>
+                                <input id="snow" type="hidden" name ="introProduct" class="form-control hiddenInput"
+                                    placeholder="Content">
+                            </div>
+                            <div class="col-md-4 mt-5">
+                                <label>Content</label>
+                            </div>
+                            <div class="col-md-8 form-group mt-5">
+                                <div id="snow2"></div>
+                                <input type="hidden"  name ="contentProduct" class="form-control hiddenInput"
+                                    placeholder="Content">
+                            </div>
+                            <div class="col-md-4 mt-5">
+                                <label>Keyword</label>
+                            </div>
+                            <div class="col-md-8 form-group mt-5">
+                                <input type="text" name ="keywordsProduct" class="form-control"
+                                    placeholder="Keyword Product">
+                            </div>
+                            <div class="col-md-4">
+                                <label>Description</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text" name ="descriptionProduct" class="form-control"
+                                    placeholder="Description Product">
+                            </div>
+                            <div class="col-md-4">
+                                <label>Image</label>
+                            </div>
+                            <div class="col-md-6 form-group" id="imageProduct">
+                                <input type="file" name="imageProduct" class="form-control my-1">
+                            </div>
+                            <div class="col-md-2 mt-1"><button class="btn btn-info" type="button" id="addImage">Add Image</button></div>
+                            <div class="col-md-4">
+                                <label>Size</label>
+                            </div>
+                            <div class="col-md-2 form-group" id="sizeProduct">
+                                <input type="text" name="sizeProduct" class="form-control"
+                                    placeholder="Size">
+                            </div>
+                            <div class="col-md-2"><button class="btn btn-info" type="button" id="addSizes">Add Size</button></div>
+
+                            <div class="col-12 d-flex justify-content-end">
+                                <button type="submit"
+                                    class="btn btn-primary me-1 mb-1">Submit</button>
+                                <button type="reset"
+                                    class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.querySelector('#addImage').onclick = function (e) {
+        e.preventDefault();
+        $('#imageProduct').append('<input type="file" name="imageProduct" class="form-control my-1">');
+    }
+    document.querySelector('#addSizes').onclick = function (e) {
+        e.preventDefault();
+        $('#sizeProduct').append('<input type="text" name ="sizeProduct" class="form-control my-1" placeholder="Size">');
+    }
+</script>
+<script src="/admin/quill/quill.min.js"></script>
+<script src="/admin/js/form-editor.js"></script>

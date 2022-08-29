@@ -1,0 +1,109 @@
+<div class="col-lg-12 col-md-6 col-12">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">Add Category</h4>
+        </div>
+        <div class="card-content">
+            <div class="card-body">
+                <form class="form form-horizontal form-quills" action="?_method=PUT" method="POST">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>Username</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text" name ="username" class="form-control"
+                                    placeholder="Username" value="{{ user.username}}">
+                            </div>
+                            <div class="col-md-4">
+                                <label>Fullname</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text" name ="fullname" class="form-control"
+                                    placeholder="Fullname" value="{{ user.fullname}}">
+                            </div>
+                            <div class="col-md-4">
+                                <label>Password</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="password" name ="password" class="form-control"
+                                    placeholder="Password" value="{{ user.password}}">
+                            </div>
+                            <div class="col-md-4">
+                                <label>Email</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text" name ="email" class="form-control"
+                                    placeholder="Email" value="{{ user.email}}">
+                            </div>
+                            <div class="col-md-4">
+                                <label>Gender</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                    {{#switch user.gender}}
+                                    <input class="form-check-input" type="radio" value="Male" name="gender"
+                                        id="male" {{#case 'Male'}} checked="checked" {{/case}}>
+                                    <label class="form-check-label" for="male">
+                                        Male
+                                    </label>
+                                    <input class="form-check-input" type="radio" value="Female" name="gender"
+                                        id="female" {{#case 'Female'}} checked="checked" {{/case}}>
+                                    <label class="form-check-label" for="female">
+                                        Female
+                                    </label>
+                                    <input class="form-check-input" type="radio" value="Other" name="gender"
+                                        id="other" {{#case 'Other'}} checked="checked" {{/case}}>
+                                    <label class="form-check-label" for="other">
+                                        Other
+                                    </label>
+                                    {{/switch}}
+                            </div>
+                            <div class="col-md-4">
+                                <label>Address</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text" name ="address" class="form-control hiddenInput"
+                                    placeholder="Address" value="{{ user.address}}">
+                            </div>
+                            <div class="col-md-4">
+                                <label>Phone</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                <input type="text"  name ="phone" class="form-control hiddenInput"
+                                    placeholder="Phone" value="{{ user.phone}}">
+                            </div>
+                            <div class="col-md-4">
+                                <label>Level</label>
+                            </div>
+                            <div class="col-md-8 form-group">
+                                {{#switch user.level}}
+                                <input class="form-check-input" type="radio" value="0" name="level"
+                                    id="admin" {{#case '0'}} checked {{/case}}>
+                                <label class="form-check-label" for="admin">
+                                    Admin
+                                </label>
+                                <input class="form-check-input" type="radio" value="1" name="level"
+                                    id="manager" {{#case '1'}} checked {{/case}}>
+                                <label class="form-check-label" for="manager">
+                                    Manager
+                                </label>
+                                <input class="form-check-input" type="radio" value="2" name="level"
+                                    id="user" {{#case '2'}} checked {{/case}}>
+                                <label class="form-check-label" for="user">
+                                    User
+                                </label>
+                                {{/switch}}
+                            </div>
+                            <div class="col-12 d-flex justify-content-end">
+                                <button type="submit"
+                                    class="btn btn-primary me-1 mb-1">Submit</button>
+                                <button type="reset"
+                                    class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
