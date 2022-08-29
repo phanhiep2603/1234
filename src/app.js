@@ -174,3 +174,6 @@ app.listen(app.get('port'), () => {
   console.log(`App is running on http://localhost:${app.get('port')} in ${app.get('env')} mode`);
   console.log('Press CTRL-C to stop');
 })
+
+
+// mongodb+srv://phanhiep2603:<password>@cluster0.8tdqv3j.mongodb.net/?retryWrites=true&w=majority
