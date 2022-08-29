@@ -4,7 +4,7 @@
   "description": "AA Computer Store, ExpressJS, Mongodb,....",
   "main": "src/app.js",
   "scripts": {
-    "start": "node /src/app.js",
+    "start": "node src/app.js",
     "watch": "node-sass -w src/resources/scss/app.scss src/public/css/app.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
