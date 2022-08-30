@@ -171,10 +171,11 @@ class AdminController {
         } catch (err) {
             console.log(err)
         }
+        console.log(fileData.data.id)
         data.sizeProduct.forEach((function(e) {
             size.push({ size: e.toUpperCase()})
         }));
-        const images = new Images({ fileId: fileData.data.id });
+        const images = new Images({ file: fileData.data.id });
         const sizes = new Sizes({ size: size })
         const imageId = await images.save();
         const sizeId = await sizes.save();

@@ -10,7 +10,7 @@
             {{#ifGreater this.priceProduct this.price_newProduct}}
             <span class="sale tooltip-test">Sale</span>
             {{/ifGreater}}
-            <a href="/productDetail/{{ this._id}}"><img alt="" {{#each imageProduct.file}}src="/upload/{{ filename}}"{{/each}}></a>
+            <a href="/productDetail/{{ this._id}}"><img alt="" src="https://drive.google.com/uc?export=view&id={{ this.imageProduct.file}}"></a>
             <div class="shortlinks">
               <a class="details" href="/productDetail/{{ this._id}}">DETAILS</a>
               <a class="wishlist" href="#">WISHLIST</a>

@@ -5,23 +5,19 @@
             <!-- Left Image-->
             <div class="col-lg-5">
                 <ul class="thumbnails mainimage">
-                    {{#each product.imageProduct.file}}
                     <li>
-                    <a  rel="position: 'inside' , showTitle: false, adjustX:-4, adjustY:-4" class="thumbnail cloud-zoom" href="/upload/{{ filename}}">
-                        <img src="/upload/{{ filename}}" alt="" title="">
+                    <a  rel="position: 'inside' , showTitle: false, adjustX:-4, adjustY:-4" class="thumbnail cloud-zoom" href="https://drive.google.com/uc?export=view&id={{ product.imageProduct.file}}">
+                        <img src="https://drive.google.com/uc?export=view&id={{ product.imageProduct.file}}" alt="" title="">
                     </a>
                     </li>
-                    {{/each}}
                 </ul>
                 <span>Mouse move on Image to zoom</span>
                 <ul class="thumbnails mainimage">
-                    {{#each product.imageProduct.file}}
                     <li class="producthtumb">
                     <a class="thumbnail" >
-                        <img  src="/upload/{{ filename}}" alt="" title="">
+                        <img  src="https://drive.google.com/uc?export=view&id={{ product.imageProduct.file}}" alt="" title="">
                     </a>
                     </li>
-                    {{/each}}
                 </ul>
             </div>
             <!-- Right Details-->

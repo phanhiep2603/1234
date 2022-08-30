@@ -5,7 +5,7 @@ const AutoIncrement = require('mongoose-sequence')(mongoose);
 const ImagesSchema = new Schema({
 
     _id: { type: Number},
-    file: [],
+    file: {type: String, required: true},
 }, {
     timestamps: true,
 })
