@@ -4,7 +4,7 @@
   "description": "AA Computer Store, ExpressJS, Mongodb,....",
   "main": "src/app.js",
   "scripts": {
-    "start": "node src/app.js",
+    "start": "nodemon src/app.js",
     "watch": "node-sass -w src/resources/scss/app.scss src/public/css/app.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -35,6 +35,7 @@
     "express-flash": "^0.0.2",
     "express-handlebars": "^6.0.6",
     "express-session": "^1.17.3",
+    "googleapis": "^107.0.0",
     "jsonwebtoken": "^8.5.1",
     "method-override": "^3.0.0",
     "mongoose": "^6.4.6",

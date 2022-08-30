@@ -8,12 +8,14 @@ const Images = require('../models/images');
 const Sizes = require('../models/sizes');
 const Contact = require('../models/contact');
 const Bill = require('../models/bill');
+const fs = require('fs');
+// const path = require('path');
 
+// const { dirname } = require('path');
+// const appDir = dirname(require.main.filename);
 
-
-
-
-
+const { google } = require('googleapis');
+  
 class AdminController {
 
     // [GET] /admin
@@ -114,20 +116,15 @@ class AdminController {
     // [POST] /admin/addProduct
     async postAddProduct(req, res, next) {
         const data = {...req.body};
-        let file = [];
+        let file = req.file;
         let size = [];
-        
-        req.files.forEach((function(e) {
-            file.push({ filename: e.filename})
-        }));
-        data.sizeProduct.forEach((function(e) {
-            size.push({ size: e.toUpperCase()})
-        }));
+        let fileData = {};
+
         if(!size) {
             req.flash('errors', { msg: 'Please insert size for product.'})
             res.redirect('back');
         }
-        if(!req.files) {
+        if(!file) {
             req.flash('errors', { msg: 'Please provide an image.'})
             res.redirect('back');
         }
@@ -135,7 +132,49 @@ class AdminController {
             req.flash('errors', { msg: 'You must have choose Category'});
             res.redirect('/admin/addProduct');
         }
-        const images = new Images({ file: file });
+
+        const CLIENT_ID = process.env.CLIENT_ID;
+        const CLIENT_SECRET = process.env.CLIENT_SECRET;
+        const REDIRECT_URI = process.env.REDIRECT_URI;
+        const REFRESH_TOKEN = process.env.REFRESH_TOKEN;
+
+        const oAuth2Client =  new google.auth.OAuth2(
+        CLIENT_ID,
+        CLIENT_SECRET,
+        REDIRECT_URI,
+        );
+
+        oAuth2Client.setCredentials({refresh_token: REFRESH_TOKEN});
+        var drive = google.drive({
+        version: 'v3',
+        auth: oAuth2Client
+        })
+        
+        try{ 
+            fileData = await drive.files.create({
+                requestBody: {
+                    name: file.filename,
+                    mimeType: file.mimetype,
+                },
+                media: {
+                    mimeType: file.mimetype,
+                    body: fs.createReadStream(file.path)
+                }
+            })
+            await drive.permissions.create({
+                fileId: fileData.data.id,
+                requestBody: {
+                    role: 'reader',
+                    type: 'anyone'
+                }
+            })
+        } catch (err) {
+            console.log(err)
+        }
+        data.sizeProduct.forEach((function(e) {
+            size.push({ size: e.toUpperCase()})
+        }));
+        const images = new Images({ fileId: fileData.data.id });
         const sizes = new Sizes({ size: size })
         const imageId = await images.save();
         const sizeId = await sizes.save();

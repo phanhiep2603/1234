@@ -20,7 +20,7 @@ const adminController = require('../app/controllers/adminController');
     router.get('/listUser', adminController.listUser);
     router.put('/listProduct/:id', adminController.putDetailProduct)
     router.get('/listProduct/:id', adminController.detailProduct)
-    router.post('/addProduct', upload.array('imageProduct', 5),adminController.postAddProduct);
+    router.post('/addProduct', upload.single('imageProduct'),adminController.postAddProduct);
     router.get('/addProduct', adminController.getAddProduct);
     router.get('/listProduct', adminController.ListProduct);
     router.get('/listCategory', adminController.getListCategory);

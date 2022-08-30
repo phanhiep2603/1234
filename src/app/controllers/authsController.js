@@ -57,13 +57,12 @@ class AuthsController {
             if(!user) {
                 req.flash('errors', info);
                 return res.redirect('/login');
-            }else {
-                req.logIn(user, (err) => {
-                    if (err) {return next(err)};
-                    req.flash('success', { msg: 'Success! You are logged in.'})
-                    return res.redirect('/');
-                })
             }
+            req.logIn(user, (err) => {
+                if (err) {return next(err)};
+                req.flash('success', { msg: 'Success! You are logged in.'})
+                return res.redirect(req.session.returnTo || '/');
+            })
             
         })(req, res, next)
     }

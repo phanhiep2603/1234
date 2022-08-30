@@ -110,11 +110,12 @@ app.use(bodyParser.json());
 app.use(session({
   secret: 'lalalalalal123213',
   resave: true,
+  secret: process.env.SESSION_SECRET,
   saveUninitialized: true,
   cookie: {
     secure: false,
     httpOnly: true,
-    // maxAge: 5 * 60 * 1000,
+    cookie: { maxAge: 1209600000 }, // Two weeks in milliseconds
     store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }),
   }
 }))
